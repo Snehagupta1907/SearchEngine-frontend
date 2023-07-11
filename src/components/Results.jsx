@@ -15,7 +15,7 @@ const Results = () => {
         getResults(`${location.pathname}`,`${location.pathname}?q=${searchTerm}&num=10`);
         }
         else {
-            getResults(`${location.pathname}`,'/search?language=EN')
+            getResults(`${location.pathname}`,`/search?query=${searchTerm}`)
         }
     }
   },[searchTerm, location.pathname]);
@@ -52,7 +52,27 @@ const Results = () => {
       );
       break;
     case "/news":
-      return "news";
+      return (
+        <div className="sm:px-56 flex flex-wrap justify-between items-center space-y-6">
+          {results?.data?.map(({link,title,photo_url,source_url},index)=>(
+            <div key={index} className="md:w-2/5 w-full flex items-center">
+            <div className="flex-grow">
+              <a href={source_url} target="_blank" rel="noreferrer" className="hover:underline">
+                <p className="text-lg dark:text-blue-300 text-blue-700">{title}</p>
+              </a>
+            </div>
+            <div className="ml-4">
+              <a href={source_url} target="_blank" rel="noreferrer" className="hover:underline">
+                <img src={photo_url} alt="news pic" height='300px' width='300px' />
+              </a>
+            </div>
+          </div>
+          
+
+          ))}
+          </div>
+           
+      );
       break;
 
     case "/videos":

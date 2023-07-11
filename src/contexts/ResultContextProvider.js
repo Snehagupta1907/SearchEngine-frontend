@@ -4,7 +4,7 @@ import axios from "axios";
 const ResultContext = createContext(); //file
 
 const siUrl = "https://google-search72.p.rapidapi.com";
-const newsUrl = "https://google-news-api1.p.rapidapi.com";
+const newsUrl = "https://real-time-news-data.p.rapidapi.com";
 
 export const ResultContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);
@@ -48,7 +48,7 @@ export const ResultContextProvider = ({ children }) => {
         const res_news = await fetch(`${newsUrl}${url}`, {
           method: "GET",
           headers: {
-            "x-rapidapi-host": "google-news-api1.p.rapidapi.com",
+            "x-rapidapi-host": "real-time-news-data.p.rapidapi.com",
             "x-rapidapi-key": process.env.REACT_APP_API_KEY,
           },
         });
