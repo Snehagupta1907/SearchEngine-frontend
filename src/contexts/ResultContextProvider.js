@@ -21,13 +21,13 @@ export const ResultContextProvider = ({ children }) => {
           method: "GET",
           headers: {
             "x-rapidapi-host": "google-search72.p.rapidapi.com",
-            "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+            "x-rapidapi-key": process.env.REACT_APP_RAPID_KEY,
           },
         });
         const data = await res.json();
 
         setResults(data);
-        // console.log(data);
+        console.log(data);
         setLoading(false);
         break;
 
@@ -36,7 +36,7 @@ export const ResultContextProvider = ({ children }) => {
           method: "GET",
           headers: {
             "x-rapidapi-host": "google-search72.p.rapidapi.com",
-            "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+            "x-rapidapi-key": process.env.REACT_APP_RAPID_KEY,
           },
         });
         const data_img = await res_image.json();
