@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
-import axios from "axios";
+
 
 const ResultContext = createContext(); //file
 
 const siUrl = "https://google-search72.p.rapidapi.com";
 const newsUrl = "https://real-time-news-data.p.rapidapi.com";
+const vidUrl="https://youtube-search-results.p.rapidapi.com";
 
 export const ResultContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);
@@ -55,9 +56,23 @@ export const ResultContextProvider = ({ children }) => {
         const data_news = await res_news.json();
 
         setResults(data_news);
-        console.log(data_news);
+        // console.log(data_news);
         setLoading(false);
         break;
+        case "/videos":
+          const res_vid = await fetch(`${vidUrl}${url}`, {
+            method: "GET",
+            headers: {
+              "x-rapidapi-host": "youtube-search-results.p.rapidapi.com",
+              "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+            },
+          });
+          const data_vid = await res_vid.json();
+  
+          setResults(data_vid);
+          console.log(data_vid);
+          setLoading(false);
+          break;
       default:
         setLoading(false);
     }
