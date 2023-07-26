@@ -2,6 +2,10 @@
 
 This is a web application built with ReactJS that functions as a search engine similar to Google. It utilizes the RapidAPI service to fetch search results for different endpoints, including search, image search, news, and videos. The application is designed to be responsive and incorporates the Tailwind CSS framework for styling.
 
+#### Link
+
+"https://xplore19.netlify.app/"
+
 ## Features
 
 - **Search**: Enter a query to retrieve search results from the search engine. The search results display the link and title of each search result.

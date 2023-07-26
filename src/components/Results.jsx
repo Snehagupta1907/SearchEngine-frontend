@@ -62,11 +62,12 @@ const Results = () => {
                 <img
                   src={thumbnailImageUrl}
                   alt={title}
+                  key={index}
                   loading="lazy"
                   height="100px"
                   width="200px"
                 />
-                <p className="sm:w-36 w-56 break-words text-sm mt-2">{title}</p>
+                <p key={index} className="sm:w-36 w-56 break-words text-sm mt-2">{title}</p>
               </a>
             )
           )}
